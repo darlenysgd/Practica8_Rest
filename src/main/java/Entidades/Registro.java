@@ -17,17 +17,17 @@ public class Registro implements Serializable{
     private long id;
     private String nombre;
     private String sector;
-    private String nivelEscolar;
-    private String ubicacion;
+    private String educacion;
+    private String lugar;
 
     public Registro() {
     }
 
-    public Registro(String nombre, String sector, String nivelEscolar, String ubicacion) {
+    public Registro(String nombre, String sector, String educacion, String lugar) {
         this.nombre = nombre;
         this.sector = sector;
-        this.nivelEscolar = nivelEscolar;
-        this.ubicacion = ubicacion;
+        this.educacion = educacion;
+        this.lugar = lugar;
 
     }
 
@@ -47,20 +47,20 @@ public class Registro implements Serializable{
         this.sector = sector;
     }
 
-    public String getNivelEscolar() {
-        return nivelEscolar;
+    public String geteducacion() {
+        return educacion;
     }
 
-    public void setNivelEscolar(String nivelEscolar) {
-        this.nivelEscolar = nivelEscolar;
+    public void seteducacion(String educacion) {
+        this.educacion = educacion;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public String getlugar() {
+        return lugar;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setlugar(String lugar) {
+        this.lugar = lugar;
     }
 
 }

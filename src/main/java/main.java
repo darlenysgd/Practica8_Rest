@@ -34,6 +34,9 @@ public class main {
         post("/listadoBD", main.ACCEPT_TYPE, ((request, response) -> {
 
             ArrayList<Registro>registros= new Gson().fromJson(request.body(), ArrayList.class);
+            for(Registro aux : registros){
+                RegistroServices.getInstancia().crear(aux);
+            }
             return "ok";
         }), JsonUtilidades.json());
 
