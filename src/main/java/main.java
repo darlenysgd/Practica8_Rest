@@ -7,6 +7,7 @@ import com.google.gson.JsonArray;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import spark.ModelAndView;
 
 import java.util.ArrayList;
@@ -32,11 +33,18 @@ public class main {
 
 
         post("/listadoBD", main.ACCEPT_TYPE, ((request, response) -> {
+            JSONArray arr = new JSONArray(request.body());
+            for (int i = 0; i < arr.length(); i++)
+            {
+                Registro aux = new Registro(arr.getJSONObject(i).getString("nombre"),
+                        arr.getJSONObject(i).getString("sector"),
+                        arr.getJSONObject(i).getString("educacion"),
+                        arr.getJSONObject(i).getString("lugar"));
 
-            ArrayList<Registro>registros= new Gson().fromJson(request.body(), ArrayList.class);
-            for(Registro aux : registros){
                 RegistroServices.getInstancia().crear(aux);
+
             }
+
             return "ok";
         }), JsonUtilidades.json());
 

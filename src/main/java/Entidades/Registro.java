@@ -29,6 +29,7 @@ public class Registro implements Serializable{
         this.educacion = educacion;
         this.lugar = lugar;
 
+
     }
 
     public String getNombre() {
